@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kritik_version_2023/components/establishment_grid.dart';
 import 'package:kritik_version_2023/components/search_bar_profile.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,11 +12,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Column(children: [
-      Padding(
-        padding: EdgeInsets.only(top: 50),
-        child: SearchBarAndProfile(),
+    return const SingleChildScrollView(
+      child: Center(
+        child: Column(children: [
+          Padding(
+            padding: EdgeInsets.only(top: 50),
+            child: SearchBarAndProfile(),
+          ),
+          EstablishmentsGrid(),
+        ]),
       ),
-    ]);
+    );
   }
 }
