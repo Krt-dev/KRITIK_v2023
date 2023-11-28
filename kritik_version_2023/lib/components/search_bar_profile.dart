@@ -13,6 +13,7 @@ class _SearchBarAndProfileState extends State<SearchBarAndProfile> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //proofile and ciity
         Row(
           children: [
             Padding(
@@ -44,6 +45,40 @@ class _SearchBarAndProfileState extends State<SearchBarAndProfile> {
               child: Image.asset("assets/images/profile1.png"),
             ),
           ],
+        ),
+        //profile and city ending
+        //search bar starting
+        Padding(
+          padding: const EdgeInsets.only(left: 17),
+          child: Container(
+            height: 70,
+            width: 320,
+            child: Row(
+              children: [
+                SvgPicture.asset("assets/images/searchIcon.svg"),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, right: 30),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(
+                      height: 70,
+                      width: 220,
+                      child: const TextField(
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 136, 129, 129)),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Search',
+                            hintStyle: TextStyle(fontSize: 25)),
+                      ),
+                    ),
+                  ),
+                ),
+                SvgPicture.asset("assets/images/adjust.svg")
+              ],
+            ),
+          ),
         )
       ],
     );
