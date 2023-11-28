@@ -11,7 +11,6 @@ class EstablishmentsGrid extends StatelessWidget {
     return Container(
       height: 520,
       width: 350,
-      decoration: BoxDecoration(color: Colors.blue),
       child:
           //text buttons
 
