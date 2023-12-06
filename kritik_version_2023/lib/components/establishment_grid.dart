@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import "package:kritik_version_2023/components/establishment_data_grid.dart";
@@ -8,20 +9,19 @@ class EstablishmentsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var filterCategoryList = EstablishmentGridData.map((establishment) => (establishment["Category"])).toList();
     return Container(
       height: 520,
       width: 350,
       child:
-          //text buttons
-
           //establishments grid V
           GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          // width / height: fixed for *all* items
           childAspectRatio: 0.80,
         ),
-        itemCount: EstablishmentGridData.length,
+        // itemCount: EstablishmentGridData.length,
+        itemCount: establishmentDataDisplay.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -35,7 +35,8 @@ class EstablishmentsGrid extends StatelessWidget {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                  EstablishmentGridData[index]['path']),
+                                  // EstablishmentGridData[index]['path']),
+                                  establishmentDataDisplay[index].pathImage),
                               fit: BoxFit.cover)),
                       //bookmark and star rating
                       child: Column(
@@ -60,12 +61,14 @@ class EstablishmentsGrid extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              EstablishmentGridData[index]['name'],
+                              establishmentDataDisplay[index].name,
+                              // EstablishmentGridData[index]['name'],
                               style: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w700),
                             ),
                             Text(
-                              EstablishmentGridData[index]['location'],
+                              establishmentDataDisplay[index].location,
+                              // EstablishmentGridData[index]['location'],
                               style: const TextStyle(
                                   fontSize: 11, fontWeight: FontWeight.w300),
                             ),

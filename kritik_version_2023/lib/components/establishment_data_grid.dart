@@ -1,3 +1,5 @@
+import 'classEstablishment.dart';
+
 List<Map> EstablishmentGridData = [
   {
     'id': 1,
@@ -34,4 +36,21 @@ List<Map> EstablishmentGridData = [
     "location": "Mambaling, Cebu",
     "Category": "Restaurant",
   }
+];
+
+List<Establishment> establishmentDataDisplay = [
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+  Establishment(
+      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant")
 ];
