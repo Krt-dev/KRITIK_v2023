@@ -42,7 +42,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
       .map((establishment) => establishment)
       .toList()
       .cast<Establishment>()
-      .where((establishment) => establishment.category.contains("beach"))
+      .where((establishment) => establishment.category.contains("Beach"))
       .cast<Establishment>()
       .toList();
   //for the mean time I will use all the data of the establishments for showing the explore and popular filter while I stil dont have data
@@ -66,7 +66,15 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
   //   listOfAllEstablishments.add(establishment);
   // });
   // var filterCategoryList = EstablishmentGridData.map((establishment) => (establishment["Category"])).toList();
-  List<Establishment> establishmentDataDisplay = [];
+
+  //default value of the displayed list of establishments
+  List<Establishment> establishmentDataDisplay = establishmentData
+      .map((establishment) => establishment)
+      .toList()
+      .cast<Establishment>()
+      .where((establishment) => establishment.category.contains("Restaurant"))
+      .cast<Establishment>()
+      .toList();
 
 //logic to change the colors of the text button and the list of data to be filtered
   void changeColorNavigation(int num) {
@@ -198,7 +206,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           ),
         ),
         Container(
-          height: 520,
+          height: 480,
           width: 350,
           child:
               //establishments grid V
