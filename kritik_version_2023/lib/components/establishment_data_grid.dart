@@ -38,7 +38,7 @@ List<Map> EstablishmentGridData = [
   }
 ];
 
-List<Establishment> establishmentDataDisplay = [
+List<Establishment> establishmentData = [
   Establishment(
       "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
   Establishment(
@@ -52,5 +52,5 @@ List<Establishment> establishmentDataDisplay = [
   Establishment(
       "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
   Establishment(
-      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant")
+      "assets/images/profile.png", "Jollibee", "Mambaling, Cebu", "Hotel")
 ];
