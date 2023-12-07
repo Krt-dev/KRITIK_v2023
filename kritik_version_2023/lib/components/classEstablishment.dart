@@ -3,6 +3,8 @@ class Establishment {
   String name = '';
   String location = '';
   String category = '';
+  String description = "";
 
-  Establishment(this.pathImage, this.name, this.location, this.category);
+  Establishment(this.pathImage, this.name, this.location, this.category,
+      this.description);
 }
