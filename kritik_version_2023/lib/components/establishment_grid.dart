@@ -4,6 +4,7 @@ import "package:kritik_version_2023/components/establishment_data_grid.dart";
 import 'package:kritik_version_2023/components/establishment_profile.dart';
 
 class EstablishmentsGrid extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   EstablishmentsGrid({super.key});
 
   @override

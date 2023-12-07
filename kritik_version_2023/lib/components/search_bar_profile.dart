@@ -50,20 +50,20 @@ class _SearchBarAndProfileState extends State<SearchBarAndProfile> {
         //search bar starting
         Padding(
           padding: const EdgeInsets.only(left: 17),
-          child: Container(
+          child: SizedBox(
             height: 70,
             width: 320,
             child: Row(
               children: [
                 SvgPicture.asset("assets/images/searchIcon.svg"),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 30),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20, right: 30),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: SizedBox(
                       height: 70,
                       width: 220,
-                      child: const TextField(
+                      child: TextField(
                         style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 136, 129, 129)),
