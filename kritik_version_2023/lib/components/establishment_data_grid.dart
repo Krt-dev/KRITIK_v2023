@@ -46,13 +46,49 @@ List<Establishment> establishmentData = [
     "Chowi",
     "Tabunok, Cebu",
     "Beach",
-  ),
+      ),
   Establishment(
-      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+      "assets/images/shomay.png", 
+      "Shomay", 
+      "Colon, Cebu", 
+      "Restaurant"
+      ),
   Establishment(
-      "assets/images/profile.png", "Jollibee", "Mambaling, Cebu", "Hotel"),
+      "assets/images/profile.png", 
+      "Jollibee", 
+      "Mambaling, Cebu", 
+      "Hotel"
+      ),
   Establishment(
-      "assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Restaurant"),
+      "assets/images/chowi.png", 
+      "Chowi", 
+      "Tabunok, Cebu", 
+      "Restaurant"
+      ),
+  Establishment(
+    "assets/images/chowi.png",
+    "Chowi",
+    "Tabunok, Cebu",
+    "Restaurant",
+    ),
+  Establishment(
+      "assets/images/shomay.png", 
+      "Shomay", 
+      "Colon, Cebu", 
+      "Restaurant"
+      ),
+  Establishment(
+      "assets/images/profile.png", 
+      "Jollibee", 
+      "Mambaling, Cebu", 
+      "Hotel"
+      ),
+  Establishment(
+   "assets/images/chowi.png", 
+   "Chowi", 
+   "Tabunok, Cebu", 
+   "Beach"
+   ),
   Establishment(
     "assets/images/chowi.png",
     "Chowi",
@@ -60,10 +96,23 @@ List<Establishment> establishmentData = [
     "Restaurant",
   ),
   Establishment(
-      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+      "assets/images/shomay.png", 
+      "Shomay", 
+      "Colon, Cebu", 
+      "Restaurant"
+      ),
   Establishment(
-      "assets/images/profile.png", "Jollibee", "Mambaling, Cebu", "Hotel"),
-  Establishment("assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Beach"),
+      "assets/images/profile.png", 
+      "Jollibee", 
+      "Mambaling, Cebu", 
+      "Hotel"
+      ),
+  Establishment(
+    "assets/images/chowi.png", 
+    "Chowi", 
+    "Tabunok, Cebu", 
+    "Hotel"
+    ),
   Establishment(
     "assets/images/chowi.png",
     "Chowi",
@@ -71,21 +120,33 @@ List<Establishment> establishmentData = [
     "Restaurant",
   ),
   Establishment(
-      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+      "assets/images/shomay.png", 
+      "Shomay", 
+      "Colon, Cebu", 
+      "Restaurant"
+      ),
   Establishment(
-      "assets/images/profile.png", "Jollibee", "Mambaling, Cebu", "Hotel"),
-  Establishment("assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Hotel"),
+      "assets/images/profile.png", 
+      "Jollibee", 
+      "Mambaling, Cebu", 
+      "Hotel"
+      ),
   Establishment(
-    "assets/images/chowi.png",
-    "Chowi",
-    "Tabunok, Cebu",
-    "Restaurant",
-  ),
+      "assets/images/chowi.png", 
+      "Chowi", 
+      "Tabunok, Cebu", 
+      "Beach"
+      ),
   Establishment(
-      "assets/images/shomay.png", "Shomay", "Colon, Cebu", "Restaurant"),
+    "assets/images/chowi.png", 
+    "Chowi", 
+    "Tabunok, Cebu", 
+    "Beach"
+    ),
   Establishment(
-      "assets/images/profile.png", "Jollibee", "Mambaling, Cebu", "Hotel"),
-  Establishment("assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Beach"),
-  Establishment("assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Beach"),
-  Establishment("assets/images/chowi.png", "Chowi", "Tabunok, Cebu", "Beach"),
+    "assets/images/chowi.png", 
+    "Chowi", 
+    "Tabunok, Cebu", 
+    "Beach"
+    ),
 ];
