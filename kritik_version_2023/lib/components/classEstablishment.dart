@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:hive/hive.dart';
 
 class Establishment {
   String pathImage = '';

@@ -17,6 +17,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
   var beach = false;
   var populars = false;
   var explore = false;
+  //putting initial list into the hivebox
 
   //filtering establishments. putting them into a new list
   List<Establishment> hotelFilter = establishmentData
@@ -302,3 +303,5 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
     );
   }
 }
+// pag add og input sa hivebox nya i retrives sa hivebox then i post diri
+
