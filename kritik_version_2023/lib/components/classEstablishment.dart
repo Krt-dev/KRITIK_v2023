@@ -5,6 +5,9 @@ class Establishment {
   String category = '';
   String description = "";
 
+  String address = "";
+  double starRating = 0.0;
+
   Establishment(this.pathImage, this.name, this.location, this.category,
-      this.description);
+      this.description, this.address, this.starRating);
 }
