@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
-import 'package:kritik_version_2023/components/establishment_data_grid.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class EstablishmentProfile extends StatefulWidget {
@@ -16,29 +15,92 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SlidingUpPanel(
+      //background of teh sliding panel
       body: Container(
-        width: 100,
-        height: 100,
+        width: 0,
+        height: 0,
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(widget.establishment.pathImage),
                 fit: BoxFit.cover)),
       ),
-      panel: Column(
-        children: [
-          Center(
-            child: Container(
-              height: 150,
-              width: 350,
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text(widget.establishment.description),
-            ),
-          )
-        ],
-      ),
-      maxHeight: 700,
+      //properties of the sliding panel
+      maxHeight: 700, //maxheight
+      minHeight: 480, //deafult height or height when close
       borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(35), topRight: Radius.circular(35)),
+      //panel with Listview inside it to enable scrollable feature
+      panelBuilder: (controller) =>
+          ListView(controller: controller, padding: EdgeInsets.zero, children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20, left: 25),
+          child: Text(
+            widget.establishment.name,
+            style: const TextStyle(fontSize: 35, fontWeight: FontWeight.w500),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, bottom: 10),
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/images/stars.png",
+                height: 30,
+              ),
+              const Text(
+                "5.0",
+                style: TextStyle(fontSize: 25),
+              )
+            ],
+          ),
+        ),
+        Center(
+            child: Container(
+          height: 130,
+          width: 320,
+          child: Text(widget.establishment.description),
+        )),
+        const Padding(
+          padding: EdgeInsets.only(left: 25),
+          child: Text(
+            "Explore The Area",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          ),
+        ),
+        Container(
+            height: 120,
+            width: 100,
+            child: Image.asset(
+              "assets/images/mapClickable.png",
+            )),
+        const Padding(
+          padding: EdgeInsets.only(left: 20),
+          child: Text(
+            "Address:",
+            style: TextStyle(fontSize: 9, fontWeight: FontWeight.w700),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text(
+            widget.establishment.location,
+            style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w200,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.grey),
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.only(top: 30),
+          child: Center(
+            child: Text("Reviews",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+          ),
+        )
+      ]),
     ));
   }
 }
+
+class PanelScrollableWidget {}

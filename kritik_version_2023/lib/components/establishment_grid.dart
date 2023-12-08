@@ -4,6 +4,7 @@ import "package:kritik_version_2023/components/establishment_data_grid.dart";
 import 'package:kritik_version_2023/components/establishment_profile.dart';
 
 class EstablishmentsGrid extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   EstablishmentsGrid({super.key});
 
   @override
@@ -16,6 +17,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
   var beach = false;
   var populars = false;
   var explore = false;
+  //putting initial list into the hivebox
 
   //filtering establishments. putting them into a new list
   List<Establishment> hotelFilter = establishmentData
@@ -301,3 +303,5 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
     );
   }
 }
+// pag add og input sa hivebox nya i retrives sa hivebox then i post diri
+

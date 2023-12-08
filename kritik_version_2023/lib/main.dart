@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kritik_version_2023/components/classEstablishment.dart';
 import 'components/home_page.dart';
 
 void main() {
