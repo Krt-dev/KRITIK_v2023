@@ -9,7 +9,7 @@ List<Establishment> establishmentData = [
       "Shomay",
       "Colon, Cebu",
       "Restaurant",
-      "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace."),
+      "Welcome to Uncle Brew, wenthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace."),
   Establishment(
       "assets/images/profile.png",
       "Jollibee",
@@ -106,7 +106,7 @@ List<Establishment> establishmentData = [
     "assets/images/shomay.png",
     "Shomay",
     "Colon, Cebu",
-    "Restaurant",
+    "Beach",
     "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace.",
   ),
   Establishment(
@@ -187,6 +187,6 @@ List<Establishment> establishmentData = [
       "assets/images/profile.png",
       "Jollibee",
       "Mambaling, Cebu",
-      "Hotel",
+      "Beach",
       "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace."),
 ];

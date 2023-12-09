@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
 import "package:kritik_version_2023/components/establishment_data_grid.dart";
 import 'package:kritik_version_2023/components/establishment_profile.dart';
+import 'package:kritik_version_2023/components/services.dart';
 
 class EstablishmentsGrid extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -17,34 +19,79 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
   var beach = false;
   var populars = false;
   var explore = false;
-  //putting initial list into the hivebox
+
+  //putting initial list into the hivebox and from the hive box putting in in  a list nad filtering it
+  final EstablishmentService _establishmentServices = EstablishmentService();
+
+  late List<Establishment> hotelFilter = [],
+      restaurantFilter = [],
+      beachFilter = [],
+      allEstabFilter = [];
+
+  ///using this initState to run this functions only once
+  @override
+  void initState() {
+    super.initState();
+    hoFilters();
+    restoFilters();
+    beachFilters();
+    allFilters();
+  }
+
+  Future<void> hoFilters() async {
+    hotelFilter = await _establishmentServices.getAllEstablishment().then(
+        (establishmentList) => establishmentList
+            .map((establishment) => establishment)
+            .where((establishment) => establishment.category.contains("Hotel"))
+            .toList()
+            .cast<Establishment>());
+    print("hotel called");
+    print(hotelFilter.length);
+
+    setState(() {});
+  }
+
+  Future<void> allFilters() async {
+    allEstabFilter = await _establishmentServices.getAllEstablishment();
+    print("all List of establishments");
+    print(allEstabFilter.length);
+
+    setState(() {});
+  }
+
+  Future<void> restoFilters() async {
+    restaurantFilter = await _establishmentServices.getAllEstablishment().then(
+        (establishmentList) => establishmentList
+            .map((establishment) => establishment)
+            .where((establishment) =>
+                establishment.category.contains("Restaurant"))
+            .toList()
+            .cast<Establishment>());
+    print("restaurant called");
+    print(restaurantFilter.length);
+
+    setState(() {});
+  }
+
+  Future<void> beachFilters() async {
+    beachFilter = await _establishmentServices.getAllEstablishment().then(
+        (establishmentList) => establishmentList
+            .map((establishment) => establishment)
+            .where((establishment) => establishment.category.contains("Beach"))
+            .toList()
+            .cast<Establishment>());
+    print("beach called");
+    print(beachFilter.length);
+
+    setState(() {});
+  }
 
   //filtering establishments. putting them into a new list
-  List<Establishment> hotelFilter = establishmentData
-      .map((establishment) => establishment)
-      .toList()
-      .cast<Establishment>()
-      .where((establishment) => establishment.category.contains("Hotel"))
-      .cast<Establishment>()
-      .toList();
 
   //filtering establishments. putting them into a new list
-  List<Establishment> restaurantFilter = establishmentData
-      .map((establishment) => establishment)
-      .toList()
-      .cast<Establishment>()
-      .where((establishment) => establishment.category.contains("Restaurant"))
-      .cast<Establishment>()
-      .toList();
 
   //filtering establishments. putting them into a new list
-  List<Establishment> beachFilter = establishmentData
-      .map((establishment) => establishment)
-      .toList()
-      .cast<Establishment>()
-      .where((establishment) => establishment.category.contains("Beach"))
-      .cast<Establishment>()
-      .toList();
+
   //for the mean time I will use all the data of the establishments for showing the explore and popular filter while I stil dont have data
   //filtering establishments. putting them into a new list
   // List<Establishment> exploreFilter = establishmentData
@@ -98,6 +145,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           populars = false;
           explore = false;
         });
+        break;
       case 2: //for hotels
         establishmentDataDisplay = hotelFilter;
         setState(() {
@@ -107,6 +155,8 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           populars = false;
           explore = false;
         });
+        break;
+
       case 3: //for nbeach
         establishmentDataDisplay = beachFilter;
         setState(() {
@@ -116,8 +166,10 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           populars = false;
           explore = false;
         });
+        break;
+
       case 4: // for populars
-        establishmentDataDisplay = establishmentData;
+        establishmentDataDisplay = allEstabFilter;
         setState(() {
           restaurants = false;
           hotels = false;
@@ -125,15 +177,19 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           populars = true;
           explore = false;
         });
+        break;
+
       case 5: //for explore
+        establishmentDataDisplay = establishmentData;
+
         setState(() {
-          establishmentDataDisplay = establishmentData;
           explore = true;
           restaurants = false;
           hotels = false;
           beach = false;
           populars = false;
         });
+        break;
     }
   }
 
