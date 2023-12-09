@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'classEstablishment.dart';
+part of '../serverside/classEstablishment.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

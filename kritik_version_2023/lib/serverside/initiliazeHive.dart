@@ -1,5 +1,5 @@
-import 'package:kritik_version_2023/components/establishment_data_grid.dart';
-import 'package:kritik_version_2023/components/services.dart';
+import 'package:kritik_version_2023/components/data/establishment_data_grid.dart';
+import 'package:kritik_version_2023/serverside/services.dart';
 
 Future<void> initHive() async {
   final EstablishmentService establishmentServ = EstablishmentService();

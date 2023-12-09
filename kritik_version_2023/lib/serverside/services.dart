@@ -1,16 +1,8 @@
 import 'package:hive/hive.dart';
-import "classEstablishment.dart";
-import 'package:path_provider/path_provider.dart' as path_provider;
+import 'classEstablishment.dart';
 
 class EstablishmentService {
   final String _boxName = "establishmentBox";
-
-  // Future<Box<Establishment>> get _box async {
-  //   final appDocumentDirectory =
-  //       await path_provider.getApplicationDocumentsDirectory();
-  //   Hive.init(appDocumentDirectory.path);
-  //   return await Hive.openBox<Establishment>(_boxName);
-  // }
 
   Future<Box<Establishment>> get _box async {
     return await Hive.openBox<Establishment>(_boxName);

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:kritik_version_2023/components/classEstablishment.dart';
-import "package:kritik_version_2023/components/establishment_data_grid.dart";
-import 'package:kritik_version_2023/components/establishment_profile.dart';
-import 'package:kritik_version_2023/components/services.dart';
+import 'package:kritik_version_2023/serverside/classEstablishment.dart';
+import 'package:kritik_version_2023/components/data/establishment_data_grid.dart';
+import 'package:kritik_version_2023/components/UserInterface/establishment_profile.dart';
+import 'package:kritik_version_2023/serverside/services.dart';
 
 class EstablishmentsGrid extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -180,7 +179,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
         break;
 
       case 5: //for explore
-        establishmentDataDisplay = establishmentData;
+        establishmentDataDisplay = allEstabFilter;
 
         setState(() {
           explore = true;

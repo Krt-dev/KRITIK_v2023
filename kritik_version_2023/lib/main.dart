@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:kritik_version_2023/components/classEstablishment.dart';
-import 'package:kritik_version_2023/components/initiliazeHive.dart';
-import 'components/home_page.dart';
+import 'package:kritik_version_2023/serverside/classEstablishment.dart';
+import 'package:kritik_version_2023/serverside/initiliazeHive.dart';
+import 'components/UserInterface/home_page.dart';
 
 void main() async {
   await Hive.initFlutter();
