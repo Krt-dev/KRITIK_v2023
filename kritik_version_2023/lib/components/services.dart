@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'classEstablishment.dart';
+import '../components/classEstablishment.dart';
 
 class EstablishmentService {
   final String _boxName = "establishmentBox";

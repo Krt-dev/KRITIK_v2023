@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kritik_version_2023/serverside/classEstablishment.dart';
-import 'package:kritik_version_2023/components/data/establishment_data_grid.dart';
-import 'package:kritik_version_2023/components/UserInterface/establishment_profile.dart';
-import 'package:kritik_version_2023/serverside/services.dart';
+import 'package:kritik_version_2023/components/classEstablishment.dart';
+import 'package:kritik_version_2023/components/establishment_data_grid.dart';
+import 'package:kritik_version_2023/components/establishment_profile.dart';
+import 'package:kritik_version_2023/components/services.dart';
 
 class EstablishmentsGrid extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
@@ -114,13 +114,14 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
   // var filterCategoryList = EstablishmentGridData.map((establishment) => (establishment["Category"])).toList();
 
   //default value of the displayed list of establishments
-  List<Establishment> establishmentDataDisplay = establishmentData
-      .map((establishment) => establishment)
-      .toList()
-      .cast<Establishment>()
-      .where((establishment) => establishment.category.contains("Restaurant"))
-      .cast<Establishment>()
-      .toList();
+  List<Establishment> establishmentDataDisplay = [];
+  // establishmentData
+  //     .map((establishment) => establishment)
+  //     .toList()
+  //     .cast<Establishment>()
+  //     .where((establishment) => establishment.category.contains("Restaurant"))
+  //     .cast<Establishment>()
+  //     .toList();
 
 //function to route to the page profile
   Future route(Establishment estabProfile) {
@@ -189,6 +190,16 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
           populars = false;
         });
         break;
+      default:
+        establishmentDataDisplay = restaurantFilter;
+
+        setState(() {
+          explore = false;
+          restaurants = true;
+          hotels = false;
+          beach = false;
+          populars = false;
+        });
     }
   }
 

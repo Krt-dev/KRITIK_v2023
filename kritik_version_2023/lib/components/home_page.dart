@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kritik_version_2023/components/UserInterface/establishment_grid.dart';
-import 'package:kritik_version_2023/components/UserInterface/search_bar_profile.dart';
+import 'package:kritik_version_2023/components/establishment_grid.dart';
+import 'package:kritik_version_2023/components/search_bar_profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

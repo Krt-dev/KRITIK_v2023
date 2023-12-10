@@ -1,4 +1,4 @@
-import '../../serverside/classEstablishment.dart';
+import 'classEstablishment.dart';
 
 //OOP list style
 List<Establishment> establishmentData = [
