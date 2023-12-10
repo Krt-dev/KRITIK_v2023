@@ -210,24 +210,141 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                 height: 286,
                 width: 360,
                 decoration: const BoxDecoration(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 231, 228, 228),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(35),
                         topRight: Radius.circular(35))),
-                child: SizedBox(
-                    child: ListView.builder(
-                  itemCount: widget.establishment.reviews.length,
-                  itemBuilder: (context, index) {
-                    return const Column(
-                      children: [
-                        //profile image part of the review, star rating and name
-                        Row(
-                          children: [],
-                        )
-                      ],
-                    );
-                  },
-                )),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 260.0,
+                      ),
+                      child: InkWell(
+                          onTap: () {
+                            print("clicked");
+                          },
+                          child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child:
+                                  Image.asset("assets/images/plusButton.png"))),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, bottom: 20),
+                      child: SizedBox(
+                          height: 215,
+                          width: 360,
+                          child: ListView.builder(
+                            controller: controller,
+                            itemCount: widget.establishment.reviews.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 30),
+                                child: Column(
+                                  children: [
+                                    //profile image part of the review, star rating and name
+                                    Row(
+                                      children: [
+                                        Container(
+                                          height: 43,
+                                          width: 43,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              image: DecorationImage(
+                                                  image: AssetImage(widget
+                                                      .establishment
+                                                      .reviews[index]
+                                                      .imagePath))),
+                                        ),
+                                        //names and star rating
+                                        Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10, right: 30),
+                                              child: SizedBox(
+                                                height: 20,
+                                                width: 100,
+                                                child: Text(widget.establishment
+                                                    .reviews[index].name),
+                                              ),
+                                            ),
+                                            Image.asset(
+                                                "assets/images/starRatingFilled.png")
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    //review or the comment of the user
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 10, bottom: 10, right: 30),
+                                      child: SizedBox(
+                                        width: 300,
+                                        child: Text(widget.establishment
+                                            .reviews[index].reviewComment),
+                                      ),
+                                    ),
+                                    Row(children: [
+                                      SizedBox(
+                                        height: 100,
+                                        width: 300,
+                                        child: ListView(
+                                          scrollDirection: Axis.horizontal,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: SizedBox(
+                                                height: 70,
+                                                width: 100,
+                                                child: Image.asset(
+                                                  "assets/images/chowi.png",
+                                                  height: 70,
+                                                  width: 100,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: SizedBox(
+                                                height: 70,
+                                                width: 100,
+                                                child: Image.asset(
+                                                  "assets/images/chowi.png",
+                                                  height: 70,
+                                                  width: 150,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(2.0),
+                                              child: SizedBox(
+                                                height: 70,
+                                                width: 100,
+                                                child: Image.asset(
+                                                  "assets/images/chowi.png",
+                                                  height: 70,
+                                                  width: 150,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ])
+                                  ],
+                                ),
+                              );
+                            },
+                          )),
+                    ),
+                  ],
+                ),
               )
             ]),
           )

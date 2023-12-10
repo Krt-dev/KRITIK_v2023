@@ -16,11 +16,11 @@ List<Establishment> establishmentData = [
       "Uncle Brew is a hidden gem that combines exceptional coffee with an inviting ambiance, creating a delightful haven for coffee lovers and social butterflies alike. The rich and diverse menu offers a symphony of flavors, from robust espresso blends to meticulously crafted pour-over selections. Each sip is a journey through the nuances of high-quality beans, expertly brewed by skilled baristas. Users happily commended the ambiance at Uncle Brew, it is a harmonious blend of rustic charm and modern comfort. ",
       [
         Reviews("Rhunnan", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Hugh", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Kurt", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png")
+            "assets/images/chowi.png")
       ]),
   Establishment(
       "assets/images/profile.png",
@@ -32,11 +32,11 @@ List<Establishment> establishmentData = [
       "Uncle Brew is a hidden gem that combines exceptional coffee with an inviting ambiance, creating a delightful haven for coffee lovers and social butterflies alike. The rich and diverse menu offers a symphony of flavors, from robust espresso blends to meticulously crafted pour-over selections. Each sip is a journey through the nuances of high-quality beans, expertly brewed by skilled baristas. Users happily commended the ambiance at Uncle Brew, it is a harmonious blend of rustic charm and modern comfort. ",
       [
         Reviews("Rhunnan", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Hugh", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Kurt", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png")
+            "assets/images/chowi.png")
       ]),
   Establishment(
       "assets/images/shomay.png",
@@ -48,11 +48,11 @@ List<Establishment> establishmentData = [
       "Uncle Brew is a hidden gem that combines exceptional coffee with an inviting ambiance, creating a delightful haven for coffee lovers and social butterflies alike. The rich and diverse menu offers a symphony of flavors, from robust espresso blends to meticulously crafted pour-over selections. Each sip is a journey through the nuances of high-quality beans, expertly brewed by skilled baristas. Users happily commended the ambiance at Uncle Brew, it is a harmonious blend of rustic charm and modern comfort. ",
       [
         Reviews("Rhunnan", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Hugh", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png"),
+            "assets/images/chowi.png"),
         Reviews("Kurt", "Chowi have the best food in town", 20,
-            "assets/imgaes/chowi.png")
+            "assets/images/chowi.png")
       ]),
   // Establishment(
   //     "assets/images/shomay.png",
