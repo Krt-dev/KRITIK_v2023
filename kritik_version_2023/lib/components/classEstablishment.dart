@@ -6,16 +6,46 @@ part 'classEstablishment.g.dart';
 @HiveType(typeId: 1)
 class Establishment {
   @HiveField(0)
-  String pathImage = '';
+  String pathImage = "";
   @HiveField(1)
-  String name = '';
+  String name = "";
   @HiveField(2)
-  String location = '';
+  String location = "";
   @HiveField(3)
-  String category = '';
+  String category = "";
   @HiveField(4)
   String description = "";
+  @HiveField(5)
+  String address = "";
+  @HiveField(6)
+  String aiScript = '';
+  @HiveField(7)
+  List<Reviews> reviews = [];
 
   Establishment(this.pathImage, this.name, this.location, this.category,
-      this.description);
+      this.description, this.address, this.aiScript, this.reviews);
+}
+
+@HiveType(typeId: 2)
+class Reviews {
+  @HiveField(0)
+  String name = "";
+  @HiveField(1)
+  String reviewComment = "";
+  @HiveField(2)
+  double starRating = 0;
+  @HiveField(3)
+  String imagePath = "";
+
+  Reviews(this.name, this.reviewComment, this.starRating, this.imagePath);
+}
+
+@HiveType(typeId: 3)
+class User {
+  @HiveField(0)
+  String name = "";
+  @HiveField(1)
+  List<Reviews> reviews = [];
+
+  User(this.name, this.reviews);
 }

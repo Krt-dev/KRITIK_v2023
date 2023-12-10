@@ -7,6 +7,8 @@ import 'package:kritik_version_2023/components/initiliazeHive.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(EstablishmentAdapter());
+  Hive.registerAdapter(UserAdapter());
+  Hive.registerAdapter(ReviewsAdapter());
   await initHive();
   runApp(const MyApp());
 }
