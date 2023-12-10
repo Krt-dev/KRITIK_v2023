@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
-import 'package:kritik_version_2023/components/establishment_data_grid.dart';
+import 'package:kritik_version_2023/components/services.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class EstablishmentProfile extends StatefulWidget {
@@ -12,6 +12,9 @@ class EstablishmentProfile extends StatefulWidget {
 }
 
 class _EstablishmentProfileState extends State<EstablishmentProfile> {
+  TextEditingController textController = TextEditingController();
+  final EstablishmentService _establishmentService = EstablishmentService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,14 +225,121 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                       ),
                       child: InkWell(
                           onTap: () {
-                            print("clicked");
+                            showModalBottomSheet(
+                                context: context,
+                                isScrollControlled:
+                                    true, // I Set this  to true to allow the content to take more than half of the screen, because bottom sheet max height is only half scfreen
+                                builder: (context) {
+                                  return Container(
+                                    height: 640,
+                                    width: 360,
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(25),
+                                            topRight: Radius.circular(25)),
+                                        color: Color.fromARGB(
+                                            255, 6, 164, 207)), //
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 280),
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Image.asset(
+                                                "assets/images/xbutton.png"),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding:
+                                              EdgeInsets.only(top: 30, left: 8),
+                                          child: Text(
+                                            "What do you think ?",
+                                            style: TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100,
+                                          width: 300,
+                                          child: TextField(
+                                            controller: textController,
+                                            style: const TextStyle(
+                                                fontSize: 20,
+                                                color: Color.fromARGB(
+                                                    255, 136, 129, 129)),
+                                            decoration: const InputDecoration(
+                                                border: InputBorder.none,
+                                                hintText:
+                                                    'Share your thoughts...',
+                                                hintStyle:
+                                                    TextStyle(fontSize: 25)),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            // put the kuan here the new service to add review
+                                            // widget.establishment;
+                                            _establishmentService.addReview(
+                                                Reviews(
+                                                    "Guess",
+                                                    textController.text,
+                                                    5,
+                                                    "assets/images/profile1.png"),
+                                                widget.establishment);
+
+                                            Navigator.pop(context);
+                                            textController.clear();
+                                          },
+                                          style: ButtonStyle(
+                                            foregroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.green),
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.transparent),
+                                            // Transparent background
+                                            padding: MaterialStateProperty.all<
+                                                EdgeInsetsGeometry>(
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 20.0,
+                                                  vertical: 10.0),
+                                            ),
+                                            shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                side: const BorderSide(
+                                                    color: Colors
+                                                        .green), // Border color
+                                              ),
+                                            ),
+                                            textStyle: MaterialStateProperty
+                                                .all<TextStyle>(
+                                              const TextStyle(
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          child: const Text(
+                                              'Customized TextButton'),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                });
                           },
                           child: SizedBox(
                               width: 50,
                               height: 50,
                               child:
                                   Image.asset("assets/images/plusButton.png"))),
-                    ),
+                    ), //reviewss partss
                     Padding(
                       padding: const EdgeInsets.only(left: 20, bottom: 20),
                       child: SizedBox(

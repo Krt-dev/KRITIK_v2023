@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
-import 'package:kritik_version_2023/components/establishment_data_grid.dart';
 import 'package:kritik_version_2023/components/establishment_profile.dart';
 import 'package:kritik_version_2023/components/services.dart';
 
