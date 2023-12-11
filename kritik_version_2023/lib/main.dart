@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:kritik_version_2023/components/book_mark_page.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
 import 'package:kritik_version_2023/components/home_page.dart';
 import 'package:kritik_version_2023/components/initiliazeHive.dart';
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static const List<Widget> _pages = <Widget>[
     HomePage(),
+    BookMarkPage(),
   ];
 
   void _onItemTapped(int index) {
