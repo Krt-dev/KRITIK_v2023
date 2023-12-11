@@ -49,6 +49,8 @@ class User {
   String name = "";
   @HiveField(1)
   List<Reviews> reviews = [];
+  @HiveField(2)
+  List<Establishment> bookmarks = [];
 
-  User(this.name, this.reviews);
+  User(this.name, this.reviews, this.bookmarks);
 }

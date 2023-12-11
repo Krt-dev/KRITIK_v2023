@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
+import 'package:kritik_version_2023/components/googleMapPage.dart';
 import 'package:kritik_version_2023/components/services.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -86,6 +87,7 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
     );
   }
 
+//STARTING RON DKO MALIBOG HAHHAHAHAH TAAS NKAY ANG CODE
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,12 +161,20 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
           ),
-          SizedBox(
-              height: 120,
-              width: 346,
-              child: Image.asset(
-                "assets/images/mapClickable.png",
-              )),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const GoogleMapPage()),
+              );
+            },
+            child: SizedBox(
+                height: 120,
+                width: 346,
+                child: Image.asset(
+                  "assets/images/mapClickable.png",
+                )),
+          ),
           const Padding(
             padding: EdgeInsets.only(right: 285),
             child: Text(

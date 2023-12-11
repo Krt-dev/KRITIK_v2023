@@ -20,6 +20,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
 
   //putting initial list into the hivebox and from the hive box putting in in  a list nad filtering it
   final EstablishmentService _establishmentServices = EstablishmentService();
+  final UserService _userService = UserService();
 
   late List<Establishment> hotelFilter = [],
       restaurantFilter = [],
@@ -34,6 +35,10 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
     restoFilters();
     beachFilters();
     allFilters();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      // Simulate a tap on Restaurants button
+      changeColorNavigation(1);
+    });
   }
 
   Future<void> hoFilters() async {
@@ -295,6 +300,7 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
+                  _userService.addToBookmarks(establishmentDataDisplay[index]);
                   route(establishmentDataDisplay[index]);
                 },
                 child: Padding(

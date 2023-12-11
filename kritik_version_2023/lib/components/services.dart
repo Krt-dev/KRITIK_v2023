@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:kritik_version_2023/components/establishment_data_grid.dart';
 import '../components/classEstablishment.dart';
 
 ReviewService _reviewService = ReviewService();
@@ -33,7 +32,6 @@ class EstablishmentService {
   }
 
   Future<bool> containsEstablishment(Establishment data) async {
-    // Check if the box contains an item with the same data
     var box = await _box;
     return box.values.contains(data);
   }
@@ -53,18 +51,21 @@ class EstablishmentService {
   Future<void> deleteReview(Reviews review, Establishment establishment) async {
     var box = await _box;
 
-    for (int i = 0; i < box.length; i++) {
-      if (box.values.toList()[i] == establishment) {
-        //set nako ang index sa reviews nga i edelte
-        int reviewIndex = box.values.toList()[i].reviews.indexOf(review);
+    for (var key in box.keys) {
+      var currentEstablishment = box.get(key) as Establishment?;
+
+      if (currentEstablishment != null &&
+          currentEstablishment == establishment) {
+        // Find the index of the review within the list
+        int reviewIndex = currentEstablishment.reviews.indexOf(review);
 
         if (reviewIndex != -1) {
-          // ge remove na nao diri using the removeAt function sa mga list
-          box.values.toList()[i].reviews.removeAt(reviewIndex);
-
-          // Save sa box new update
-          box.put(i, box.values.toList()[i]);
+          // Remove the review from the list
+          currentEstablishment.reviews.removeAt(reviewIndex);
         }
+
+        // Save the updated establishment back to the box
+        box.put(key, currentEstablishment);
       }
     }
   }
@@ -127,15 +128,61 @@ class ReviewService {
     var box = await _box;
     return box.values.contains(data);
   }
+}
 
-//make a service that allows you to add new review to an establihsment
-  // Future<void> addReview(Reviews review, Establishment establishment) async {
-  //   var box = await _box;
+//services for the USERS
+class UserService {
+  final String _boxName = "userBox";
 
-  //   for (int i = 0; i < box.length; i++) {
-  //     if (box.values.toList()[i] == establishment) {
-  //       box.values.toList()[i].reviews.insert(0, review);
-  //     }
-  //   }
-  // }
+  Future<Box<User>> get _box async {
+    return await Hive.openBox<User>(_boxName);
+  }
+
+  Future<void> addUser(User user) async {
+    var box = await _box;
+    await box.add(user);
+  }
+
+  Future<List<User>> getAllUsers() async {
+    var box = await _box;
+    return box.values.toList();
+  }
+
+  Future<List<Establishment>> getAllBookmarks() async {
+    var box = await _box;
+    if (box.isEmpty) {
+      return []; //since dli man pwede mo retrun og null so retrun kog empty if walay bookmars ron dli mo error
+    }
+    return box.values.first.bookmarks.toList();
+  }
+
+  Future<User?> getFirstUser() async {
+    var box = await _box;
+    if (box.isEmpty) {
+      return null;
+    }
+    return box.values.first;
+  }
+
+  Future<void> addToBookmarks(Establishment establishment) async {
+    var box = await _box;
+
+    if (box.isEmpty) {
+      return; // if empty ang user na box pasabot walay user so dli ka add og bookmark
+    }
+
+    // chceking if ang bookamrk naana daan aw dli na i add blaik
+    if (!box.values.first.bookmarks.contains(establishment)) {
+      // if wala aw i add sa bookmarks
+      box.values.first.bookmarks.add(establishment);
+      box.put(0, box.values.first);
+    } else {
+      return;
+    }
+  }
+
+  Future<int> getBoxLength() async {
+    var box = await _box;
+    return box.length.toInt();
+  }
 }
