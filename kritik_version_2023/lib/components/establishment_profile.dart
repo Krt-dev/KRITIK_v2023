@@ -17,8 +17,23 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
 
 //kani nga function mao ni paras show alert dialog sa mga reviews kong i click tong iconbutton nga naas  pra review na button then mogawas
 //ni kay mao ni para option sa edit or delete
+
   void showAlertDialog(int index) {
     // set up the buttons
+    TextEditingController controlText = TextEditingController();
+    //mao ni button para edit
+    Widget editTextButton = TextButton(
+      child: Text("Confirm Edit"),
+      onPressed: () {
+        _establishmentService.editReview(
+            index,
+            widget.establishment.reviews[index],
+            controlText,
+            widget.establishment);
+        textController.clear();
+        Navigator.pop(context);
+      },
+    );
     Widget deleteButton = TextButton(
       child: Text("Delete"),
       onPressed: () {
@@ -29,16 +44,30 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
         Navigator.pop(context);
       },
     );
-    Widget editButton = TextButton(
-      child: Text("Edit"),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    );
     Widget cancelButton = TextButton(
       child: Text("Cancel"),
       onPressed: () {
         Navigator.pop(context);
+      },
+    );
+    Widget editButton = TextButton(
+      child: Text("Edit"),
+      onPressed: () {
+        Navigator.pop(context);
+
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Edit Review'),
+                content: TextField(
+                  controller: controlText,
+                  decoration:
+                      InputDecoration(hintText: "Edit your Comment here"),
+                ),
+                actions: [cancelButton, editTextButton],
+              );
+            });
       },
     );
 

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:kritik_version_2023/components/establishment_data_grid.dart';
 import '../components/classEstablishment.dart';
@@ -37,8 +38,6 @@ class EstablishmentService {
     return box.values.contains(data);
   }
 
-//make a service that allows you to add new review to an establihsment
-//done hahah olrayt
   Future<void> addReview(Reviews review, Establishment establishment) async {
     var box = await _box;
 
@@ -55,11 +54,40 @@ class EstablishmentService {
     var box = await _box;
 
     for (int i = 0; i < box.length; i++) {
-      if (box.values.toList()[i].reviews[i] == review) {
-        box.values.toList()[i].reviews.removeAt(i);
-        box.put(i, establishment);
-        //naa gyapon nis reviewBox sa hive pero okay ra dli i delete digto wala paman sad ge use ang establishment box raman gyud ang goal
-        //ang review nga class para lang tos object lang sa.
+      if (box.values.toList()[i] == establishment) {
+        //set nako ang index sa reviews nga i edelte
+        int reviewIndex = box.values.toList()[i].reviews.indexOf(review);
+
+        if (reviewIndex != -1) {
+          // ge remove na nao diri using the removeAt function sa mga list
+          box.values.toList()[i].reviews.removeAt(reviewIndex);
+
+          // Save sa box new update
+          box.put(i, box.values.toList()[i]);
+        }
+      }
+    }
+  }
+
+  Future<void> editReview(
+    int index,
+    Reviews review,
+    TextEditingController textEditingController,
+    Establishment establishment,
+  ) async {
+    var box = await _box;
+
+    for (int i = 0; i < box.length; i++) {
+      if (box.values.toList()[i] == establishment) {
+        // Assuming the index is within the range of reviews
+        if (index >= 0 && index < box.values.toList()[i].reviews.length) {
+          // Update the review comment
+          box.values.toList()[i].reviews[index].reviewComment =
+              textEditingController.text;
+
+          // Save the updated review back to the box
+          box.put(i, box.values.toList()[i]);
+        }
       }
     }
   }
@@ -95,7 +123,7 @@ class ReviewService {
   }
 
   Future<bool> containsReview(Reviews data) async {
-    // Check if the box contains an item with the same data
+    // check if ang box naa bay item or data na pariha ani
     var box = await _box;
     return box.values.contains(data);
   }
