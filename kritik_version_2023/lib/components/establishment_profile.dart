@@ -15,6 +15,48 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
   TextEditingController textController = TextEditingController();
   final EstablishmentService _establishmentService = EstablishmentService();
 
+//kani nga function mao ni paras show alert dialog sa mga reviews kong i click tong iconbutton nga naas  pra review na button then mogawas
+//ni kay mao ni para option sa edit or delete
+  void showAlertDialog(int index) {
+    // set up the buttons
+    Widget deleteButton = TextButton(
+      child: Text("Delete"),
+      onPressed: () {
+        _establishmentService.deleteReview(
+          widget.establishment.reviews[index],
+          widget.establishment,
+        );
+        Navigator.pop(context);
+      },
+    );
+    Widget editButton = TextButton(
+      child: Text("Edit"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+    Widget cancelButton = TextButton(
+      child: Text("Cancel"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Options"),
+      actions: [deleteButton, editButton, cancelButton],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -252,6 +294,7 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                                                 "assets/images/xbutton.png"),
                                           ),
                                         ),
+
                                         const Padding(
                                           padding:
                                               EdgeInsets.only(top: 30, left: 8),
@@ -263,6 +306,9 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                                                 color: Colors.white),
                                           ),
                                         ),
+                                        Image.asset(
+                                            "assets/images/starRatingEmpty.png"),
+
                                         SizedBox(
                                           height: 100,
                                           width: 300,
@@ -276,58 +322,143 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                                                 border: InputBorder.none,
                                                 hintText:
                                                     'Share your thoughts...',
-                                                hintStyle:
-                                                    TextStyle(fontSize: 25)),
+                                                hintStyle: TextStyle(
+                                                    fontSize: 17.5,
+                                                    color: Colors.white30)),
                                           ),
                                         ),
-                                        TextButton(
-                                          onPressed: () {
-                                            // put the kuan here the new service to add review
-                                            // widget.establishment;
-                                            _establishmentService.addReview(
-                                                Reviews(
-                                                    "Guess",
-                                                    textController.text,
-                                                    5,
-                                                    "assets/images/profile1.png"),
-                                                widget.establishment);
 
-                                            Navigator.pop(context);
-                                            textController.clear();
-                                          },
-                                          style: ButtonStyle(
-                                            foregroundColor:
-                                                MaterialStateProperty.all<
-                                                    Color>(Colors.green),
-                                            backgroundColor:
-                                                MaterialStateProperty.all<
-                                                    Color>(Colors.transparent),
-                                            // Transparent background
-                                            padding: MaterialStateProperty.all<
-                                                EdgeInsetsGeometry>(
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 20.0,
-                                                  vertical: 10.0),
-                                            ),
-                                            shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                side: const BorderSide(
-                                                    color: Colors
-                                                        .green), // Border color
+                                        //kani kay ang bottomsheet para add sa reviews na part
+                                        SizedBox(
+                                          height: 400,
+                                          width: 600,
+                                          child: Column(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 250, bottom: 20),
+                                                child: SizedBox(
+                                                  height: 50,
+                                                  width: 280,
+                                                  child: TextButton(
+                                                    onPressed: () {},
+                                                    style: ButtonStyle(
+                                                      foregroundColor:
+                                                          MaterialStateProperty
+                                                              .all<Color>(
+                                                                  Colors.white),
+                                                      backgroundColor:
+                                                          MaterialStateProperty
+                                                              .all<Color>(
+                                                        const Color.fromARGB(
+                                                            255, 239, 175, 80),
+                                                      ),
+                                                      shape: MaterialStateProperty
+                                                          .all<
+                                                              RoundedRectangleBorder>(
+                                                        RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          side:
+                                                              const BorderSide(
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          239,
+                                                                          175,
+                                                                          80)),
+                                                          // Border color
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    child: const Text(
+                                                      'Add Photos',
+                                                      style: TextStyle(
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                            textStyle: MaterialStateProperty
-                                                .all<TextStyle>(
-                                              const TextStyle(
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
+                                              SizedBox(
+                                                height: 50,
+                                                width: 280,
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    // put the kuan here the new service to add review
+                                                    // widget.establishment;
+                                                    if (textController
+                                                        .text.isEmpty) {
+                                                      showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext
+                                                              context) {
+                                                            return const AlertDialog(
+                                                              title: Text(
+                                                                  "Warning!!!"),
+                                                              content: Text(
+                                                                  "Empty TextFields"),
+                                                            );
+                                                          });
+                                                    } else {
+                                                      _establishmentService.addReview(
+                                                          Reviews(
+                                                              "Guess",
+                                                              textController
+                                                                  .text,
+                                                              5,
+                                                              "assets/images/profile1.png",
+                                                              widget
+                                                                  .establishment
+                                                                  .name),
+                                                          widget.establishment);
+
+                                                      Navigator.pop(context);
+                                                      textController.clear();
+                                                    }
+                                                  },
+                                                  style: ButtonStyle(
+                                                    foregroundColor:
+                                                        MaterialStateProperty
+                                                            .all<Color>(
+                                                                const Color
+                                                                    .fromARGB(
+                                                                    255,
+                                                                    249,
+                                                                    96,
+                                                                    85)),
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all<Color>(
+                                                                Colors.white),
+                                                    shape: MaterialStateProperty
+                                                        .all<
+                                                            RoundedRectangleBorder>(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        side: const BorderSide(
+                                                            color:
+                                                                Colors.white),
+                                                        // Border color
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  child: const Text(
+                                                    'ADD REVIEW',
+                                                    style: TextStyle(
+                                                        fontSize: 18.0,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          child: const Text(
-                                              'Customized TextButton'),
                                         )
                                       ],
                                     ),
@@ -382,8 +513,20 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                                               ),
                                             ),
                                             Image.asset(
-                                                "assets/images/starRatingFilled.png")
+                                                "assets/images/starRatingFilled.png"),
                                           ],
+                                        ),
+                                        //para edit nga function og delete or button
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 70),
+                                          child: IconButton(
+                                            iconSize: 25,
+                                            icon: Icon(Icons.edit),
+                                            onPressed: () {
+                                              showAlertDialog(index);
+                                            },
+                                          ),
                                         )
                                       ],
                                     ),

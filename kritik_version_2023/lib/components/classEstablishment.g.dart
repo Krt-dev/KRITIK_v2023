@@ -76,13 +76,14 @@ class ReviewsAdapter extends TypeAdapter<Reviews> {
       fields[1] as String,
       fields[2] as double,
       fields[3] as String,
+      fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Reviews obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -90,7 +91,9 @@ class ReviewsAdapter extends TypeAdapter<Reviews> {
       ..writeByte(2)
       ..write(obj.starRating)
       ..writeByte(3)
-      ..write(obj.imagePath);
+      ..write(obj.imagePath)
+      ..writeByte(4)
+      ..write(obj.establishmentName);
   }
 
   @override

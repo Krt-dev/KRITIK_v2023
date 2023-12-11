@@ -36,8 +36,11 @@ class Reviews {
   double starRating = 0;
   @HiveField(3)
   String imagePath = "";
+  @HiveField(4)
+  String establishmentName = "";
 
-  Reviews(this.name, this.reviewComment, this.starRating, this.imagePath);
+  Reviews(this.name, this.reviewComment, this.starRating, this.imagePath,
+      this.establishmentName);
 }
 
 @HiveType(typeId: 3)
