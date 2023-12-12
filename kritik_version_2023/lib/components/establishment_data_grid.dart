@@ -127,7 +127,7 @@ List<Establishment> establishmentData = [
       ]),
     Establishment(
       "assets/images/shangrila.jpg",
-      "Shangri La",
+      "ShangriLa",
       "Tabunok, Cebu",
       "Hotels",
       "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace",
@@ -135,11 +135,11 @@ List<Establishment> establishmentData = [
       "Uncle Brew is a hidden gem that combines exceptional coffee with an inviting ambiance, creating a delightful haven for coffee lovers and social butterflies alike. The rich and diverse menu offers a symphony of flavors, from robust espresso blends to meticulously crafted pour-over selections. Each sip is a journey through the nuances of high-quality beans, expertly brewed by skilled baristas. Users happily commended the ambiance at Uncle Brew, it is a harmonious blend of rustic charm and modern comfort. ",
       [
         Reviews("Rhunnan", "Chowi have the best food in town", 5,
-            "assets/images/rhuns.jpg", "Shangri La"),
+            "assets/images/rhuns.jpg", "ShangriLa"),
         Reviews("Hugh", "Chowi have the best food in town", 5,
-            "assets/images/hughs.jpg", "Shangri La"),
+            "assets/images/hughs.jpg", "ShangriLa"),
         Reviews("Kurt", "Chowi have the best food in town", 5,
-            "assets/images/kurts.jpg", "Shangri La")
+            "assets/images/kurts.jpg", "ShangriLa")
       ]),
     Establishment(
       "assets/images/lemonbeach.jpg",
