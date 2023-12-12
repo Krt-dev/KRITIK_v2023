@@ -4,6 +4,8 @@ import 'package:kritik_version_2023/components/book_mark_page.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
 import 'package:kritik_version_2023/components/home_page.dart';
 import 'package:kritik_version_2023/components/initiliazeHive.dart';
+import 'package:kritik_version_2023/components/notification_page.dart';
+import 'package:kritik_version_2023/components/profile_page.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -44,8 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = <Widget>[
-    HomePage(),
-    BookMarkPage(),
+    HomePage(),BookMarkPage(),NotifPage(),ProfilePage()
   ];
 
   void _onItemTapped(int index) {
