@@ -318,7 +318,10 @@ class _EstablishmentsGridState extends State<EstablishmentsGrid> {
                                         // EstablishmentGridData[index]['path']),
                                         establishmentDataDisplay[index]
                                             .pathImage),
-                                    fit: BoxFit.cover)),
+                                    fit: BoxFit.cover,
+                                    ),
+                                    borderRadius: BorderRadius.circular(35.0),
+                                    ),
                             //bookmark and star rating
                             child: Column(
                               children: [

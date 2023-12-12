@@ -88,21 +88,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.blue, textStyle: const TextStyle(fontSize: 20),
-                  padding: const EdgeInsets.all(16.0), 
-                  backgroundColor: const Color(0xffFC9E4F), 
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue, 
+                    textStyle: const TextStyle(fontSize: 20),
+                    padding: const EdgeInsets.all(16.0), 
+                    backgroundColor: const Color(0xffFC9E4F), 
+                  ),
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
                 ),
-                child: const Text(
-                  'Log in',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                  ),
               ),
             ],
           );
