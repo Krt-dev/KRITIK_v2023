@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Kritik version 2023',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Kritik Demo homepage'),
     );
   }
 }
@@ -44,6 +44,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
+  bool isPopupShown = false;
 
   static const List<Widget> _pages = <Widget>[
     HomePage(),
@@ -60,6 +61,66 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> showPopup() async {
+      return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            contentPadding: EdgeInsets.zero,
+            content: SizedBox(
+              width: 300.0,
+              height: 200.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/kritiklogo.png',
+                    width: 120,
+                    height: 100,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: Text(
+                      'Log in required',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    textStyle: const TextStyle(fontSize: 20),
+                    padding: const EdgeInsets.all(16.0),
+                    backgroundColor: const Color(0xffFC9E4F),
+                  ),
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!isPopupShown) {
+        showPopup();
+        isPopupShown = true;
+      }
+    });
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('KRITIK Test'),
