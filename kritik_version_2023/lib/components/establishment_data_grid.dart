@@ -144,7 +144,7 @@ List<Establishment> establishmentData = [
     Establishment(
       "assets/images/lemonbeach.jpg",
       "Lemon Beach",
-      "Tabunok, Cebu",
+      "Cebu",
       "Beach",
       "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace",
       "Basak San Nicolas",
@@ -159,8 +159,8 @@ List<Establishment> establishmentData = [
       ]),
     Establishment(
       "assets/images/kurtspalace.jpg",
-      "Kurts Palace",
-      "Tabunok, Cebu",
+      "Kurts home",
+      "Danao, Cebu",
       "Hotels",
       "Welcome to Uncle Brew, where the art of coffee meets an unforgettable vibe, creating a haven for coffee enthusiasts and those seeking a cozy escape. At Uncle Brew, we redefine the coffee experience with a blend of exceptional brews and an ambiance that feels like a warm embrace",
       "Basak San Nicolas",

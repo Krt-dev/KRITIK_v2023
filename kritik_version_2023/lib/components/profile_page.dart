@@ -16,10 +16,10 @@ class _ProfilePageState extends State<ProfilePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              // ignore: sized_box_for_whitespace
               Container(
                 height: 650,
                 width: 350,
-                //color: Colors.black,
                 child: Column(
                  children: [
                    Image.asset(
@@ -34,13 +34,23 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 35
                       ),
                       ),
-                      const Text(
-                      'Top Contributor',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 19,
-                        color: Color(0xffFC9E4F)
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/images/Vector.png'),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                            'Top Contributor',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 19,
+                              color: Color(0xffFC9E4F)
+                            ),
+                            ),
+                          ),
+                        ],
                       ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -63,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 'Reviews',
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w300,
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 25
                                 ),
                                 ),
@@ -111,13 +121,22 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       
                     ),
-                         const Text(
-                      'Recent Reviews',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 25
-                      ),
-                      ),
+                         const Padding(
+                           padding: EdgeInsets.only(left:15.0),
+                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                             children: [
+                               Text(
+                                               'Recent Locations',
+                                               style: TextStyle(
+                                                 fontWeight: FontWeight.w500,
+                                                 fontSize: 25
+                                               ),
+                                               ),
+                             ],
+                           ),
+                         ),
+
                  ],
                 ),
               )
