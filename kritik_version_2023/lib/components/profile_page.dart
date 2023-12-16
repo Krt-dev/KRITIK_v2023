@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kritik_version_2023/components/faq_page.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -22,6 +24,23 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: 350,
                 child: Column(
                  children: [
+                  Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FaqPage()),
+              );
+            },
+            child: SvgPicture.asset(
+              "assets/images/MOREBUTTON.svg",
+              alignment: Alignment.topLeft,
+            ),
+          ),
+        ],
+      ),
                    Image.asset(
                     "assets/images/profilepageprofile.png",
                     height: 180,
@@ -127,7 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                              children: [
                                Text(
-                                               'Recent Locations',
+                                               'Recent Reviews',
                                                style: TextStyle(
                                                  fontWeight: FontWeight.w500,
                                                  fontSize: 25
