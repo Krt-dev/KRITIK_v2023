@@ -15,10 +15,10 @@ class _HomePageState extends State<HomePage> {
     return SingleChildScrollView(
       child: Center(
         child: Column(children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 50),
-            child: SearchBarAndProfile(),
-          ),
+          // const Padding(
+          //   padding: EdgeInsets.only(top: 50),
+          //   child: SearchBarAndProfile(),
+          // ),
           EstablishmentsGrid()
         ]),
       ),

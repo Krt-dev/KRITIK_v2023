@@ -68,20 +68,19 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (BuildContext context) {
           return AlertDialog(
             contentPadding: EdgeInsets.zero,
-            content: SizedBox(
+            content: const SizedBox(
               width: 300.0,
               height: 200.0,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/images/kritiklogo.png',
-                    width: 120,
-                    height: 100,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(1.0),
+                  Text("Sign In Required",
+                      style: TextStyle(
+                        fontSize: 25,
+                      )),
+                  Padding(
+                    padding: EdgeInsets.only(top: 30),
                     child: Text(
                       'Log in required',
                       style: TextStyle(fontSize: 20),

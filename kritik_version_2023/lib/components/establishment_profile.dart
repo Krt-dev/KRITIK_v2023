@@ -561,7 +561,7 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
                                               const EdgeInsets.only(left: 70),
                                           child: IconButton(
                                             iconSize: 25,
-                                            icon: Icon(Icons.edit),
+                                            icon: const Icon(Icons.edit),
                                             onPressed: () {
                                               showAlertDialog(index);
                                             },

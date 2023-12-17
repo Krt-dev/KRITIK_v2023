@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kritik_version_2023/components/profile_page.dart';
+import 'package:provider/provider.dart';
 
 class SearchBarAndProfile extends StatefulWidget {
   const SearchBarAndProfile({super.key});
@@ -44,16 +45,15 @@ class _SearchBarAndProfileState extends State<SearchBarAndProfile> {
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()),
-            );
-          },
-          child: Image.asset(
-            "assets/images/profile1.png"
-          ),
-        ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfilePage()),
+                  );
+                },
+                child: Image.asset("assets/images/profile1.png"),
+              ),
             ),
           ],
         ),
