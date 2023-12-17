@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kritik_version_2023/components/classEstablishment.dart';
 import 'package:kritik_version_2023/components/googleMapPage.dart';
+import 'package:kritik_version_2023/components/log_in_page.dart';
 import 'package:kritik_version_2023/components/services.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+bool isLoggedin = false;
 
 class EstablishmentProfile extends StatefulWidget {
   final Establishment establishment;
@@ -457,6 +459,16 @@ class _EstablishmentProfileState extends State<EstablishmentProfile> {
 
                                                       Navigator.pop(context);
                                                       textController.clear();
+
+                                                      if(!isLoggedin){
+                                                         Navigator.pushReplacement(
+                                                                          // Mo adto sa log in page
+                                                                          context,
+                                                                           MaterialPageRoute(builder: (context) => const LogInPage()), 
+                                                                                    );
+                                                                                    isLoggedin = true;
+                                                      }
+                                                      
                                                     }
                                                   },
                                                   style: ButtonStyle(

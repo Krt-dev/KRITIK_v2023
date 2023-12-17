@@ -43,7 +43,7 @@ class _FaqPageState extends State<FaqPage> {
               ),
             ),
             Text(
-            "Next year! but inser more FAQs here",
+            "Next year! but insert more FAQs here",
             style: TextStyle(fontWeight: FontWeight.w300, color: Color(0xff808080), fontSize: 15),
             textAlign: TextAlign.left,
             ),
